@@ -18,6 +18,8 @@ def turnon_led(led, red, green, blue, channel_mode = False):
     else:
         phatbeat.set_pixel(led, red, green, blue)
 
+    phatbeat.show()
+
 def clear_leds():
     phatbeat.clear()
     phatbeat.show()
