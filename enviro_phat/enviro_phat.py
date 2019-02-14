@@ -13,12 +13,12 @@ def light_sensing():
     return light.light()
 
 def color_sensing(accurate = True):
-    if(accurate)
+    if(accurate):
         leds.on()
         time.sleep(0.5)
     color = light.rgb()
     time.sleep(0.5)
-    if(accurate)
+    if(accurate):
         leds.off()
 
     return color
@@ -38,13 +38,13 @@ def pressure_sensing():
 def get_accelerometer_instant():
     return motion.accelerometer()
 
-def print_accelerometer_movement(seconds = None):
-    if seconds == None:
+def print_accelerometer_movement(duration_sec = None):
+    if duration_sec == None:
         while True:
             print(get_accelerometer_instant())
             time.sleep(0.1)
-    else
-        t_end = time.time() + seconds
+    else:
+        t_end = time.time() + duration_sec
         while time.time() < t_end:
             print(get_accelerometer_instant())
             time.sleep(0.1)
@@ -64,5 +64,5 @@ def compass():
 def read_analog(inp):
     if inp == 4:
         return analog.read_all()
-    else
+    else:
         return analog.read(inp)

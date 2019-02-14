@@ -18,14 +18,23 @@ def turnonled(led):
 def turnoffled(led):
     touchphat.led_off(led)
 
-while True:
-    for led in range(1,7):
-        touchphat.led_on(led)
-        time.sleep(0.25)
-        touchphat.led_off(led)
+def light(duration_sec = None)
+    if duration_sec == None:
+        while True:
+            for led in range(1,7):
+                touchphat.led_on(led)
+                time.sleep(0.25)
+                touchphat.led_off(led)
+    else:
+        t_end = time.time() + duration_sec
+        while time.time() < t_end:
+            for led in range(1,7):
+                touchphat.led_on(led)
+                time.sleep(0.25)
+                touchphat.led_off(led)
 
 #pad can be either a value from 1 to 6 or the pad name
 #pad names: "Back", "A", "B", "C", "D", and "Enter"
 def set_action(pad,func,*args):
         @touchphat.on_touch(pad)
-            func
+        func(args)

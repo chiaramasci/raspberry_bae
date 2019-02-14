@@ -27,10 +27,19 @@ def turnon_all(red,green,blue):
             uh.set_pixel(x, y, 0, 255, 255)
     uh.show()
 
-def blink_all(red,green,blue,blink_time = 0.25):
-    while True:
-        turnon_all(red,green,blue)
-        time.sleep(blink_time)
-        uh.clear()
-        uh.show()
-        time.sleep(blink_time)
+def blink_all(red,green,blue,duration_sec = None,blink_time = 0.25):
+    if duration_sec == None:
+        while True:
+            turnon_all(red,green,blue)
+            time.sleep(blink_time)
+            uh.clear()
+            uh.show()
+            time.sleep(blink_time)
+    else:
+        t_end = time.time() + duration_sec
+        while time.time() < t_end:
+            turnon_all(red,green,blue)
+            time.sleep(blink_time)
+            uh.clear()
+            uh.show()
+            time.sleep(blink_time)
