@@ -8,7 +8,7 @@ def start_preview(camera,seconds)
     camera.start_preview()
     sleep(10)
     camera.stop_preview()
-    
+
 def set_rotation(camera,degrees)
     camera.rotation = degrees
 
@@ -32,5 +32,3 @@ def record_video(camera,directory,duration)
     sleep(duration)
     camera.stop_recording()
     camera.stop_preview()
-    
-    
