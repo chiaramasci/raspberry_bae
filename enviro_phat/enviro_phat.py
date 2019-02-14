@@ -35,11 +35,34 @@ def pressure_sensing():
 
 #HEADING AND ACCELEROMETER
 
+def get_accelerometer_instant():
+    return motion.accelerometer()
+
+def print_accelerometer_movement(seconds = None):
+    if seconds == None:
+        while True:
+            print(get_accelerometer_instant())
+            time.sleep(0.1)
+    else
+        t_end = time.time() + seconds
+        while time.time() < t_end:
+            print(get_accelerometer_instant())
+            time.sleep(0.1)
+
 north = 0
 
 def compass_calibration():
-    print "Point the Enviro pHAT with the text the right way up (relative to you) towards north"
+    print "Point the Enviro pHAT with the text the right way up (relative to you) towards north and press ENTER"
     north = motion.heading()
 
+#0 is north and 180 is south
+#However without calibration (see compass_calibration), measuraments can be wrong
 def compass():
     return (motion.heading() - north) % 360
+
+#OTHER ANALOG SENSORS
+def read_analog(inp):
+    if inp == 4:
+        return analog.read_all()
+    else
+        return analog.read(inp)
