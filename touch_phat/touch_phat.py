@@ -4,18 +4,18 @@
 import touchphat
 import time
 
-def turnonled_all()
+def turnonled_all():
     touchphat.all_on()
 
-def turnoffled_all()
+def turnoffled_all():
     touchphat.all_off()
 
 #led can be either a value from 1 to 6 or the pad name
 #pad names: "Back", "A", "B", "C", "D", and "Enter"
-def turnonled(led)
+def turnonled(led):
     touchphat.led_on(led)
 
-def turnoffled(led)
+def turnoffled(led):
     touchphat.led_off(led)
 
 while True:
@@ -26,6 +26,6 @@ while True:
 
 #pad can be either a value from 1 to 6 or the pad name
 #pad names: "Back", "A", "B", "C", "D", and "Enter"
-def set_action(pad,func,*args)
+def set_action(pad,func,*args):
         @touchphat.on_touch(pad)
             func
