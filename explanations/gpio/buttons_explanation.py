@@ -29,10 +29,17 @@ if(GPIO.input(23) == 1):
     print(“Button 1 pressed”)
 
 
+
+#The previous technique works, but it has the problem of bouncing.
+#This one solves it creating a separated thread
+
 def fun_function():
     print "so much fuuuuun"
 
 GPIO.add_event_detect(23, GPIO.RISING, callback=fun_function, bouncetime=300)
+
+#this removes the detection added previously
+GPIO.remove_event_detect(23)
 
 
 #this command has to be put at the end of your program
