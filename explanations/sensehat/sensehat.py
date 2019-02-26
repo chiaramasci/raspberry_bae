@@ -31,3 +31,8 @@ sense.flip_h()
 
 #or verically
 sense.flip_v()
+
+pressure = sense.get_pressure()
+humidity = sense.get_humidity()
+get_temperature()
+get_temperature_from_pressure()
