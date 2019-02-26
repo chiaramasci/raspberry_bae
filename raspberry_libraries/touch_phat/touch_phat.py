@@ -4,6 +4,8 @@
 import touchphat
 import time
 
+from touchphat import on_touch
+
 def turnonled_all():
     touchphat.all_on()
 
@@ -35,6 +37,15 @@ def light(duration_sec = None)
 
 #pad can be either a value from 1 to 6 or the pad name
 #pad names: "Back", "A", "B", "C", "D", and "Enter"
+
+'''
 def set_action(pad,func,*args):
         @touchphat.on_touch(pad)
         func(args)
+'''
+
+#TODO: test if it works
+def on_touch(pad):
+    def wrapper(func,*args, **kwargs):
+        func(*args, **kwargs)
+    return wrapper

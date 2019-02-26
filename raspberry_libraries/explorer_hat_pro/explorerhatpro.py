@@ -7,11 +7,11 @@ import time
 
 def turnon_all():
     explorerhat.light.on()
-    
+
 def turnoff_all():
     explorerhat.light.off()
-    
-def turnon_led(*leds)
+
+def turnon_led(*leds):
     for led in leds:
         if led == "blue":
             explorerhat.light.blue.on()
@@ -23,8 +23,8 @@ def turnon_led(*leds)
             explorerhat.light.green.on()
         else:
             print "invalid led color"
-            
-def turnoff_led(*leds)
+
+def turnoff_led(*leds):
     for led in leds:
         if led == "blue":
             explorerhat.light.blue.off()
@@ -37,7 +37,7 @@ def turnoff_led(*leds)
         else:
             print "invalid led color"
 
-def pulse_all(duration_sec = None)
+def pulse_all(duration_sec = None):
     if duration_sec == None:
         explorerhat.light.pulse()
     else:
@@ -46,8 +46,8 @@ def pulse_all(duration_sec = None)
         while time.time < time_end:
             print "pulse"
         explorerhat.light.off()
-        
-def pulse_led(*leds,duration_sec = None)
+
+def pulse_led(*leds,duration_sec = None):
     if duration_sec == None:
         for led in leds:
             if led == "blue":
@@ -76,7 +76,7 @@ def pulse_led(*leds,duration_sec = None)
         while time.time < time_end:
             print "pulse"
         explorerhat.light.off()
-        
+
 #input
 def readinput_all():
     return explorerhat.input.read()
@@ -96,11 +96,11 @@ def readinput_four():
 #output
 #TODO look for output
 
-        
+
 #analog
-def readanalog_all():        
+def readanalog_all():
     return explorerhat.analog.read()
-    
+
 def readanalog_one():
     return explorerhat.analog.one.read()
 
@@ -112,7 +112,7 @@ def readanalog_three():
 
 def readanalog_four():
     return explorerhat.analog.four.read()
-            
+
 #motor
 #TODO: check why it does not work
 explorerhat.motor.one.forward(100)

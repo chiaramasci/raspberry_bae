@@ -56,6 +56,7 @@ def phatbeat.on(button,func):
         raise Exception('button is not in the list of available options (see buttons)')
 '''
 
+#TODO: test if it works
 def on(button):
     def wrapper(func,*args, **kwargs):
         func(*args, **kwargs)
