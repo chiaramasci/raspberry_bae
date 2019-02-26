@@ -3,6 +3,7 @@
 #audio test from command line: speaker-test -c2 -t wav
 
 import phatbeat
+from phatbeat import on
 
 '''
 LEDS
@@ -12,7 +13,7 @@ They can be turned on/off by:
 '''
 
 def turnon_led(led, red, green, blue, channel_mode = False):
-    if channel_mode = True:
+    if channel_mode == True:
         for channel in (0,1):
             phatbeat.set_pixel(led, red, green, blue, channel=channel)
     else:
@@ -39,9 +40,23 @@ buttons = [phatbeat.BTN_FASTFWD,phatbeat.BTN_REWIND,phatbeat.BTN_PLAYPAUSE,phatb
 phatbeat.BTN_VOLDN,
 phatbeat.BTN_ONOFF]
 
-def addaction_button (button,func,*args):
+'''
+def addaction_button(button,func,*args):
     if(button in buttons):
         @phatbeat.on(button)
         func(args)
     else:
         raise Exception('button is not in the list of available options (see buttons)')
+
+
+def phatbeat.on(button,func):
+    if(button in buttons):
+        func(*args)
+    else:
+        raise Exception('button is not in the list of available options (see buttons)')
+'''
+
+def on(button):
+    def wrapper(func,*args, **kwargs):
+        func(*args, **kwargs)
+    return wrapper
